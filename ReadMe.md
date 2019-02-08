@@ -5,7 +5,7 @@ Run ubuntu container, and attach to local command-line session, and runs /bin/ba
 
 `docker run -it ubuntu /bin/bash`
 
-# Type of networking
+# Types of networking
 ## Bridge (default)
 ```bash
 docker run -d --name nginx-3 -p 10000:80 nginx
@@ -53,6 +53,7 @@ docker container stop <ID>
 # I/O
 
 ```bash
+cd appFile/
 cat app.py
 
 docker run -d demo/appfile
@@ -62,3 +63,12 @@ docker exec -it <name> /bin/bash
 # Mount a volume to /test
 
 `docker run -v /home/brat/Learning/demo/appFile:/test -d demo/appfile`
+
+# Scalability?
+
+
+```
+docker run -d -p 80:80 -v /var/run/docker.sock:/tmp/docker.sock:ro jwilder/nginx-proxy
+docker run -e VIRTUAL_HOST=bratcave.com -d friendlyhello
+```
+
