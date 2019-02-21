@@ -1,0 +1,42 @@
+# Sign up on dockerhub: hub.docker.com
+
+# Setup Docker on laptop:
+sudo apt install docker
+
+git clone https://github.com/bharathbrat/dockerdemo.git
+cd dockerdemo/
+
+cd app
+
+
+# Write dockerfile and build
+
+docker build --tag=friendlyhello .
+
+# Login to docker hub through command line
+
+docker login
+
+# Tag the docker image
+
+docker tag friendlyhello brat197/friendlyhello
+
+# Push the docker image to docker hub
+
+docker push brat197/friendlyhello
+
+# Pull the docker image from docker hub
+
+docker pull brat197/friendlyhello
+
+docker image ls
+
+# Run in foreground
+docker run -p 4000:80 brat197/friendlyhello
+
+# Run as background
+docker run -d -p 4000:80 brat197/friendlyhello
+
+docker container ls
+docker container stop <ID>
+
